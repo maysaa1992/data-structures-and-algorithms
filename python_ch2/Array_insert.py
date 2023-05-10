@@ -9,9 +9,7 @@ def insertion (arr ,num):
     continue
     
   
- print(arr)    
-    
-    
+ print(arr)        
     
 insertion([1,2,4],3)  
 insertion([42,8,15,23,42], 16)  
