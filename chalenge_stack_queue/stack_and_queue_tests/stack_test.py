@@ -50,4 +50,15 @@ def test_six():
     stack_01= Stack()
     actual_value = stack_01.pop()
     expected_value = "This is an empty stack"
-    assert actual_value == expected_value      
+    assert actual_value == expected_value 
+         
+def test_seven():
+    stack_01= Stack()
+    stack_01.push(1)
+    stack_01.push(2)
+    stack_01.push(3)
+    stack_01.push(4)
+    stack_01.pop()
+    actual_value = stack_01.peek() 
+    expected_value = 3
+    assert actual_value == expected_value 
