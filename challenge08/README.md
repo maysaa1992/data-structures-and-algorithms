@@ -2,7 +2,7 @@
 i have two linked list and i need merge between them 
 ## Whiteboard Process
 <!-- Embedded whiteboard image -->
-![linked ist zib](./ch08.PNG)
+![linked ist zib](./whitebordzip.PNG)
 
 ## Approach & Efficiency
 O(1)
