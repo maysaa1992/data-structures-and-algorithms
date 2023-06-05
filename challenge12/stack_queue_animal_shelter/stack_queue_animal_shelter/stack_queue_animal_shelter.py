@@ -5,6 +5,9 @@ class AnimalShelter:
         self.cats = []
 
     def enqueue(self, animal):
+        '''
+        this function to add the animals to the queueu
+        '''
         if animal.species == "dog":
             self.dogs.append(animal)
         elif animal.species == "cat":
@@ -13,6 +16,10 @@ class AnimalShelter:
             raise ValueError("Invalid animal species")
 
     def dequeue(self, pref):
+        '''
+                this function to delete  the animals to the queueu
+
+        '''
         if pref == "dog":
             if len(self.dogs) == 0:
                 return None
