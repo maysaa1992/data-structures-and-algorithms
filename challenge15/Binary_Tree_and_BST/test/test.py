@@ -72,3 +72,27 @@ def test_return_collection_from_post_order_traversal():
         actual=tree.post_order()
         expected=[30, 40, 20, 60, 50, 10]
         assert actual==expected
+def test_return_max():
+        tree = BinarySearchTree()
+        tree.root= Tnode(10)
+        tree.root.left=Tnode(20)
+        tree.root.right = Tnode(50)
+        tree.root.left.left = Tnode(30)
+        tree.root.left.right = Tnode(40)
+        tree.root.right.left = Tnode(60)
+        Tnode(20).left=Tnode(30)
+        actual=tree.find_maximum_value()
+        expected=60
+        assert actual==expected
+def test2_return_max():
+        tree = BinarySearchTree()
+        tree.root= Tnode(10)
+        tree.root.left=Tnode(20)
+        tree.root.right = Tnode(50)
+        tree.root.left.left = Tnode(90)
+        tree.root.left.right = Tnode(40)
+        tree.root.right.left = Tnode(60)
+        Tnode(20).left=Tnode(30)
+        actual=tree.find_maximum_value()
+        expected=90
+        assert actual==expected        

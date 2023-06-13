@@ -7,4 +7,7 @@ big O of Time O(n)
 big of space O(n)
 ## Solution
 python Binary_Tree_and_BST.py
+[Test](./test/test.py)
 pytest test.py
+## White bord for find the max value
+![max value](./challenge16.PNG)

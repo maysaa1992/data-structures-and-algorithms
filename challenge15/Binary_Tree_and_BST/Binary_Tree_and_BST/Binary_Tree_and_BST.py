@@ -63,7 +63,24 @@ class BinarySearchTree:
       list.append(root.value)
 
      _walk(self.root)
-     return list  
+     return list 
+    
+  def find_maximum_value(self) :
+        """this method is used to find the highest number in tree and return it"""
+
+        max_value = self.root.value
+
+        def _walk(root):
+               nonlocal max_value
+               if max_value < root.value:
+                   max_value = root.value
+               if root.left:
+                 _walk(root.left)
+               if root.right:
+                  _walk(root.right)
+
+        _walk(self.root)
+        return max_value 
      
 class Search_Tree(BinarySearchTree)  :
     def Add (self,val) :
@@ -94,6 +111,8 @@ class Search_Tree(BinarySearchTree)  :
                 return False
         else:
             return True
+          
+         
         
                 
         
@@ -101,16 +120,17 @@ if __name__ == "__main__":
   tree = BinarySearchTree()
   tree.root= Tnode(10)
   tree.root.left=Tnode(20)
-  tree.root.right = Tnode(50)
+  tree.root.right = Tnode(90)
   tree.root.left.left = Tnode(30)
   tree.root.left.right = Tnode(40)
   tree.root.right.left = Tnode(60)
   Tnode(20).left=Tnode(30)
   # print(Tnode(20).left)
   # print(tree.breadth_first())
-  tree.pre_order() 
-  print("###############")
-  tree.in_order()
-  print("###############")
+  # tree.pre_order() 
+  # print("###############")
+  # tree.in_order()
+  # print("###############")
 
-  tree.post_order()
+  # tree.post_order()
+  print (tree.find_maximum_value() )
