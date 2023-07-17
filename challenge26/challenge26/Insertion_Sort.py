@@ -1,19 +1,25 @@
-def insertsort(arr, value):
-    arr.append(value)
-    
-    length = len(arr)
-    
-    # Iterate over each element starting from the second one
-    for i in range(1, length):
-        key = arr[i]  
-        
-        
-        j = i - 1
-        while j >= 0 and arr[j] > key:
-            arr[j + 1] = arr[j]  
-            j = j - 1
-        
-        arr[j + 1] = key  
-    return arr
+def Insert(sorted, value):
+    i = 0
+    while value > sorted[i]:
+        i = i + 1
+        if i == len(sorted):
+            break
+    while i < len(sorted):
+        temp = sorted[i]
+        sorted[i] = value
+        value = temp
+        i = i + 1
+    sorted.append(value)
 
-print(insertsort([20, 18, 12, 8, 5, -2], 3))
+def InsertionSort(input):
+    if len(input) == 0:
+        return []
+    sorted = []
+    sorted.append(input[0])
+    for i in range(1, len(input)):
+        Insert(sorted, input[i])
+    return sorted
+
+input_array = [5, 2, 4, 6, 1, 3]
+sorted_array = InsertionSort(input_array)
+print(sorted_array)
