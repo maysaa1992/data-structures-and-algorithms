@@ -3,8 +3,7 @@
 Arguments: string
 Return: string
 ## Whiteboard Process
-<!-- Embedded whiteboard image -->
-
+![repeated_world](./repeated_world.PNG)
 ## Approach & Efficiency
  the time complexity of the function is O(n + m), and the space complexity is O(n + m), 
 ## Solution
