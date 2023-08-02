@@ -9,6 +9,7 @@
 | challeng13| [ch13](./challenge13/stack_queue_brackets)       |
 | challeng15| [ch15+16+17](./challenge15/Binary_Tree_and_BST/)       |
 | challeng30| [HAshTAble](./challenge30/HashTable)       |
+| challeng31| [ch31](./challenge31/hashmap_repeated_word/hashmap_repeated_word.py)       |
 
 
 
