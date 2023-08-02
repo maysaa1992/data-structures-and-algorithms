@@ -1,3 +1,4 @@
+
 # challenge30 : Hash Table
 
 data structure that store key-value pairs of data using buckets to increace data accessing efficiency

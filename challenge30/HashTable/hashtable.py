@@ -14,6 +14,7 @@ class Node:
 
 
 class LinkedList:
+
     '''
     what : A class representing a singly linked list data structure
     '''
@@ -33,6 +34,7 @@ class LinkedList:
         self.head = new_node
 
 
+
 class HashTable:
   '''
   what : data structure that store key-value pairs of data using buckets to increace data accessing efficiency 
@@ -41,7 +43,8 @@ class HashTable:
   def __init__(self,size=1024):
     self.__size=size
     self.__buckets=[None] *size
-    self.key_list = []
+    self.keys = []
+
     
   
   def __hash(self,key):
@@ -76,7 +79,8 @@ class HashTable:
       self.__buckets[index] = ll
      
     self.__buckets[index].insert([key,value])
-    self.key_list.append(key)
+    self.keys.append(key)
+
     
     
 
@@ -126,4 +130,5 @@ class HashTable:
     args : none
     Returns a list of all the  keys present in the Hashtable.
     '''
-    return self.key_list
+    return self.keys
+
