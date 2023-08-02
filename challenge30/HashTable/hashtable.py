@@ -14,23 +14,25 @@ class Node:
 
 
 class LinkedList:
-  '''
-  what : A class representing a singly linked list data structure
-  '''
-def __init__(self):
-  self.head = None
+
+    '''
+    what : A class representing a singly linked list data structure
+    '''
+    def __init__(self):
+        self.head = None
 
 
-def insert (self, value):
-  '''
-  insert a new node with the given value at the begining of     the linked list.
-  args: value
-  output : none
-  
-  '''
-  new_node = Node(value)
-  new_node.next = self.head
-  self.head = new_node
+    def insert (self, value):
+        '''
+        insert a new node with the given value at the begining of     the linked list.
+        args: value
+        output : none
+        
+        '''
+        new_node = Node(value)
+        new_node.next = self.head
+        self.head = new_node
+
 
 
 class HashTable:
@@ -42,6 +44,7 @@ class HashTable:
     self.__size=size
     self.__buckets=[None] *size
     self.keys = []
+
     
   
   def __hash(self,key):
@@ -77,6 +80,7 @@ class HashTable:
      
     self.__buckets[index].insert([key,value])
     self.keys.append(key)
+
     
     
 
@@ -127,3 +131,4 @@ class HashTable:
     Returns a list of all the  keys present in the Hashtable.
     '''
     return self.keys
+

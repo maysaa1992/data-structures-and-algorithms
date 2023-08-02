@@ -1,0 +1,10 @@
+[
+  "test.py::test2_return_max",
+  "test.py::test_add_left_child_and_right_child_to_node",
+  "test.py::test_instantiate_empty_tree",
+  "test.py::test_instantiate_tree_with_single_root_node",
+  "test.py::test_return_collection_from_in_order_traversal",
+  "test.py::test_return_collection_from_post_order_traversal",
+  "test.py::test_return_collection_from_pre_order_traversal",
+  "test.py::test_return_max"
+]
