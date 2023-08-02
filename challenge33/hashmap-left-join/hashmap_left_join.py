@@ -1,26 +1,170 @@
+# from challenge30.HashTable.hashtable import HashTable
+from functools import reduce
+from operator import add
 
-def left_join(synonyms_map, antonyms_map):
-    joined_data = {}
+class Node:
+  '''
+  A class represent a node in a linked list or other data structure each node has two main componenet the value of the node and the reference to the next node.
+  args: value
+  return : nothing
+  '''
+  def __init__(self, value):
+      self.next=None 
+      self.value=value
 
-    for word, synonym in synonyms_map.items():
-        antonym = antonyms_map.get(word, None)
-        joined_data[word] = (synonym, antonym)
+
+
+class LinkedList:
+
+    '''
+    what : A class representing a singly linked list data structure
+    '''
+    def __init__(self):
+        self.head = None
+
+
+    def insert (self, value):
+        '''
+        insert a new node with the given value at the begining of     the linked list.
+        args: value
+        output : none
+        
+        '''
+        new_node = Node(value)
+        new_node.next = self.head
+        self.head = new_node
+
+
+
+class HashTable:
+  '''
+  what : data structure that store key-value pairs of data using buckets to increace data accessing efficiency 
+  
+  '''
+  def __init__(self,size=1024):
+    self.__size=size
+    self.__buckets=[None] *size
+    self.keys = []
+
+    
+  
+  def __hash(self,key):
+    '''
+    A method to return the hash code of the given key
+    arg : key
+    output: hash code of the key(index)
+    '''
+    # code = 0
+   
+    # for char in key:
+    #   code += ord(str(char)) # * weight
+    # code *= 255
+    # code = code % 1024
+    # return code
+    return reduce(add, [ord(str(char)) for char in key]) * 283 % self.__size
+    return sum([ord(str(char)) for char in key]) * 283 % self.__size
+
+  
+    
+  def set(self,key,value):
+    '''
+    Set a key-value pair in the bucket, handling collisions as              needed.
+    Arguments:
+    key : The key to be hashed and used as the identifier for the           value.
+    value : the value that is aassociated with the key
+    Returns: None
+    '''
+    index = self.__hash(key)
+    if self.__buckets[index] is None:
+      ll = LinkedList()
+      self.__buckets[index] = ll
+     
+    self.__buckets[index].insert([key,value])
+    self.keys.append(key)
+ 
+
+  def get(self,key):
+    '''
+    Retrieve the value with the given key from the hashtable
+    arg : key
+    return : value or None 
+    '''
+    index=self.__hash(key)
+    bucket = self.__buckets[index]
+    if bucket is not None : 
+      curr = bucket.head
+      while curr :
+        if curr.value[0] == key :
+          return curr.value[1]
+        curr = curr.next  
+    return None  
+    
+    
+
+  def has(self, key):
+    '''
+    A method to check if the given key exist in the hashtable.
+    arg: key
+    output: boolean
+    '''
+    # index=self.__hash(key)
+    # bucket = self.__buckets[index]
+    # if bucket is not None : 
+    #   curr = bucket.head
+    #   while curr :
+    #     if curr.value[0] == key :
+    #       return True
+    #     curr = curr.next  
+    #   return False  
+    if self.get(key):
+      return True
+    return False  
+
+    
+
+  def keys(self):
+    '''
+    args : none
+    Returns a list of all the  keys present in the Hashtable.
+    '''
+    return self.keys
+
+
+def left_join(Hash1, Hash2):
+    '''        
+    function called left join
+    Arguments: two hash maps
+    The first parameter is a hashmap that has word strings as keys, and a synonym of the key as values.
+    The second parameter is a hashmap that has word strings as keys, and antonyms of the key as values.
+    Return: The returned data structure that holds the results is up to you. It doesn’t need to exactly match the output below, so long as it achieves the LEFT JOIN logic
+    '''
+    joined_data=[]
+    keys1=[]
+    keys1=Hash1.keys
+    for key in keys1 :
+        print(key)
+        if Hash2.has(key) :
+         joined_data.append([key,Hash1.get(key),Hash2.get(key)])
+        else :
+            joined_data.append([key,Hash1.get(key),None])   
 
     return joined_data
 
 if __name__=="__main__":
-    synonyms_map = {
-        'happy': 'joyful',
-        'sad': 'unhappy',
-        'big': 'large',
-        'small': 'tiny'
-    }
+    hashtable1=HashTable()
+    hashtable1.set('happy', 'joyful')
+    hashtable1.set('sad', 'unhappy')
+    hashtable1.set('big', 'large')
+    hashtable1.set('small', 'tiny')
 
-    antonyms_map = {
-        'happy': 'unhappy',
-        'small': 'big',
-        'big': 'small'
-    }
 
-    result = left_join(synonyms_map, antonyms_map)
+    hashtable2=HashTable()
+   
+    hashtable2.set('happy', 'unhappy')   
+    hashtable2.set('small', 'big')
+    hashtable2.set('big', 'small')
+    
+    
+
+    result = left_join(hashtable1, hashtable2)
     print(result)

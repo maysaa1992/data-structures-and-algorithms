@@ -8,9 +8,11 @@
 | challeng12| [challeng12](./challenge12/stack_queue_animal_shelter/ch07)       |
 | challeng13| [ch13](./challenge13/stack_queue_brackets)       |
 | challeng15| [ch15+16+17](./challenge15/Binary_Tree_and_BST/)       |
-| challeng30| [HAshTAble](./challenge30/HashTable)       |
-| challeng31| [ch31](./challenge31/hashmap_repeated_word/hashmap_repeated_word.py)       |
-| challeng32| [tree_intersection](./challenge32/tree_intersection/tree_intersection.py)       |
+| challeng30| [HAshTAble](./challenge30/HashTable/README.md)       |
+| challeng31| [ch31](./challenge31/hashmap_repeated_word/README.md)       |
+| challeng32| [tree_intersection](./challenge32/tree_intersection/README.md)       |
+| challeng33| [left_join](./challenge33/hashmap-left-join/README.md)       |
+
 
 
 

@@ -9,7 +9,7 @@ Return: The returned data structure that holds the results is up to you. It does
 
 
 ## Whiteboard Process
-<!-- Embedded whiteboard image -->
+![left-join](/challenge33/hashmap-left-join/left_join.PNG)
 
 ## Approach & Efficiency
 The space complexity of the left_join function is O(n)
