@@ -1,19 +1,4 @@
-class TreeNode:
-    def __init__(self, value):
-        self.value = value
-        self.left = None
-        self.right = None
 
-class BinaryTree:
-    def __init__(self):
-        self.root = None
-
-    def insert(self, value):
-        if not self.root:
-            self.root = TreeNode(value)
-        else:
-            self._insert_recursively(self.root, value)
-# from challenge30.HashTable.hashtable import HashTable
 from functools import reduce
 from operator import add
 
@@ -96,6 +81,10 @@ class HashTable:
      
     self.__buckets[index].insert([key,value])
     self.keys.append(key)
+
+    
+    
+
  
 
   def get(self,key):
@@ -143,32 +132,41 @@ class HashTable:
     Returns a list of all the  keys present in the Hashtable.
     '''
     return self.keys
-    
-    
 
-def tree_intersection(tree_1,tree_2):
-    
-    '''        
-    Find the common values in two binary trees using a Hashtable.
 
-        This function takes two binary trees as input and returns a list of values that are common in both trees.
 
-        Parameters:
-            tree_1 (BinaryTree): The first binary tree.
-            tree_2 (BinaryTree): The second binary tree.
+def repeated_word(string):
+        '''
+        Find the first repeated word in a given string.
 
-        Returns:
-            list: A list containing the values that are present in both `tree_1` and `tree_2`.
-    '''
-   
-    
-    common = []
-    binary_tree1 = tree_1.pre_order()
-    binary_tree2 = tree_2.pre_order()
-    hashtable = HashTable()
-    for value in binary_tree1:
-        hashtable.set(key=str(value), value=value)
-    for value in binary_tree2:
-        if hashtable.has(str(value)):
-            common.append(value)
-    return common
+        This function takes a string as input and returns the first word that appears more than once
+        (case-insensitive) in the string. If no repeated word is found, it returns None.
+        
+        '''   
+        hashtable=HashTable()     
+        string = string.lower().replace(',', '')
+        words = string.split()
+        word_set = set()  # Using a set as the hashtable for faster lookup
+
+        for word in words:
+            if hashtable.has(word):
+               value_count= hashtable.get(word)
+               value_count +=1
+               hashtable.set(word,value_count)   
+            else:
+                hashtable.set(word,1)
+        kye =0
+        count=0
+        for word in words:
+         value_count= hashtable.get(word)
+         if count < value_count:
+             count=value_count
+             kye=word
+         else :
+            continue      
+        return kye
+
+if __name__ == "__main__":
+    input_string = ""
+    result = repeated_word(input_string)
+    print(result)  
