@@ -1,5 +1,5 @@
 import unittest
-from challenge35.ghraphs import Graph
+from ghraphs.ghraph import Graph
 
 class TestGraph(unittest.TestCase):
     def setUp(self):
