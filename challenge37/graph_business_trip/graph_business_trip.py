@@ -1,5 +1,4 @@
-from graph.graph import Graph
-
+from ghraphs.ghraph import Graph
 
 def business_trip(graph, destination):
     """
