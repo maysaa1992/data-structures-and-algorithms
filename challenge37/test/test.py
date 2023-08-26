@@ -1,6 +1,6 @@
-from graph_business_trip.graph_business_trip import business_trip
 import pytest
-from ghraphs.ghraph import Graph
+from graph_business_trip.graph_business_trip import business_trip
+from challenge35.ghraphs.ghraph import Graph
 
 
 def test_metroville_to_pandora(flights):
